@@ -34,20 +34,20 @@ namespace Impostor.Server.Net.Inner.Objects.Components
                 return;
             }
 
-            if (!sender.IsOwner(this))
-            {
-                throw new ImpostorCheatException($"Client sent {call} to an unowned {nameof(InnerPlayerControl)}");
-            }
+            //if (!sender.IsOwner(this))
+            //{
+            //    throw new ImpostorCheatException($"Client sent {call} to an unowned {nameof(InnerPlayerControl)}");
+            //}
 
-            if (target != null)
-            {
-                throw new ImpostorCheatException($"Client sent {call} to a specific player instead of broadcast");
-            }
+            //if (target != null)
+            //{
+            //    throw new ImpostorCheatException($"Client sent {call} to a specific player instead of broadcast");
+            //}
 
-            if (!sender.Character.PlayerInfo.IsImpostor)
-            {
-                throw new ImpostorCheatException($"Client sent {call} as crewmate");
-            }
+            //if (!sender.Character.PlayerInfo.IsImpostor)
+            //{
+            //    throw new ImpostorCheatException($"Client sent {call} as crewmate");
+            //}
 
             var ventId = reader.ReadPackedUInt32();
             var ventEnter = call == RpcCalls.EnterVent;

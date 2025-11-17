@@ -433,10 +433,10 @@ namespace Impostor.Server.Net.Inner.Objects
 
         public override void Deserialize(IClientPlayer sender, IClientPlayer? target, IMessageReader reader, bool initialState)
         {
-            if (!sender.IsHost)
-            {
-                throw new ImpostorCheatException($"Client attempted to send data for {nameof(InnerPlayerControl)} as non-host");
-            }
+            //if (!sender.IsHost)
+            //{
+            //    throw new ImpostorCheatException($"Client attempted to send data for {nameof(InnerPlayerControl)} as non-host");
+            //}
 
             if (initialState)
             {

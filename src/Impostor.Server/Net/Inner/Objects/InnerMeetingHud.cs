@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Impostor.Api;
@@ -52,30 +52,30 @@ namespace Impostor.Server.Net.Inner.Objects
             {
                 case RpcCalls.Close:
                 {
-                    if (!sender.IsHost)
-                    {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.Close)} but was not a host");
-                    }
+                    //if (!sender.IsHost)
+                    //{
+                    //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.Close)} but was not a host");
+                    //}
 
-                    if (target != null)
-                    {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.Close)} to a specific player instead of broadcast");
-                    }
+                    //if (target != null)
+                    //{
+                    //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.Close)} to a specific player instead of broadcast");
+                    //}
 
                     break;
                 }
 
                 case RpcCalls.VotingComplete:
                 {
-                    if (!sender.IsHost)
-                    {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.VotingComplete)} but was not a host");
-                    }
+                    //if (!sender.IsHost)
+                    //{
+                    //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.VotingComplete)} but was not a host");
+                    //}
 
-                    if (target != null)
-                    {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.VotingComplete)} to a specific player instead of broadcast");
-                    }
+                    //if (target != null)
+                    //{
+                    //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.VotingComplete)} to a specific player instead of broadcast");
+                    //}
 
                     var states = reader.ReadBytesAndSize();
                     var playerId = reader.ReadByte();
@@ -99,22 +99,22 @@ namespace Impostor.Server.Net.Inner.Objects
                 case RpcCalls.CastVote:
                 {
                     var srcPlayerId = reader.ReadByte();
-                    if (srcPlayerId != sender.Character.PlayerId)
-                    {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CastVote)} to an unowned {nameof(InnerPlayerControl)}");
-                    }
+                    //if (srcPlayerId != sender.Character.PlayerId)
+                    //{
+                    //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CastVote)} to an unowned {nameof(InnerPlayerControl)}");
+                    //}
 
-                    // Host broadcasts vote to others.
-                    if (sender.IsHost && target != null)
-                    {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CastVote)} to a specific player instead of broadcast");
-                    }
+                    //// Host broadcasts vote to others.
+                    //if (sender.IsHost && target != null)
+                    //{
+                    //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CastVote)} to a specific player instead of broadcast");
+                    //}
 
-                    // Player sends vote to host.
-                    if (target == null || !target.IsHost)
-                    {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CastVote)} to wrong destinition, must be host");
-                    }
+                    //// Player sends vote to host.
+                    //if (target == null || !target.IsHost)
+                    //{
+                    //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CastVote)} to wrong destinition, must be host");
+                    //}
 
                     var targetPlayerId = reader.ReadByte();
                     break;
@@ -135,15 +135,15 @@ namespace Impostor.Server.Net.Inner.Objects
 
         public override void Deserialize(IClientPlayer sender, IClientPlayer? target, IMessageReader reader, bool initialState)
         {
-            if (!sender.IsHost)
-            {
-                throw new ImpostorCheatException($"Client attempted to send data for {nameof(InnerMeetingHud)} as non-host");
-            }
+            //if (!sender.IsHost)
+            //{
+            //    throw new ImpostorCheatException($"Client attempted to send data for {nameof(InnerMeetingHud)} as non-host");
+            //}
 
-            if (target != null)
-            {
-                throw new ImpostorCheatException($"Client attempted to send {nameof(InnerMeetingHud)} data to a specific player, must be broadcast");
-            }
+            //if (target != null)
+            //{
+            //    throw new ImpostorCheatException($"Client attempted to send {nameof(InnerMeetingHud)} data to a specific player, must be broadcast");
+            //}
 
             if (initialState)
             {

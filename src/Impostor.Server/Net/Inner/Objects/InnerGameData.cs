@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -50,15 +50,15 @@ namespace Impostor.Server.Net.Inner.Objects
             {
                 case RpcCalls.SetTasks:
                 {
-                    if (!sender.IsHost)
-                    {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetTasks)} but was not a host");
-                    }
+                    //if (!sender.IsHost)
+                    //{
+                    //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetTasks)} but was not a host");
+                    //}
 
-                    if (target != null)
-                    {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetTasks)} to a specific player instead of broadcast");
-                    }
+                    //if (target != null)
+                    //{
+                    //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetTasks)} to a specific player instead of broadcast");
+                    //}
 
                     var playerId = reader.ReadByte();
                     var taskTypeIds = reader.ReadBytesAndSize();
@@ -69,15 +69,15 @@ namespace Impostor.Server.Net.Inner.Objects
 
                 case RpcCalls.UpdateGameData:
                 {
-                    if (!sender.IsHost)
-                    {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetTasks)} but was not a host");
-                    }
+                    //if (!sender.IsHost)
+                    //{
+                    //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetTasks)} but was not a host");
+                    //}
 
-                    if (target != null)
-                    {
-                        throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetTasks)} to a specific player instead of broadcast");
-                    }
+                    //if (target != null)
+                    //{
+                    //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SetTasks)} to a specific player instead of broadcast");
+                    //}
 
                     while (reader.Position < reader.Length)
                     {
@@ -120,10 +120,10 @@ namespace Impostor.Server.Net.Inner.Objects
 
         public override void Deserialize(IClientPlayer sender, IClientPlayer? target, IMessageReader reader, bool initialState)
         {
-            if (!sender.IsHost)
-            {
-                throw new ImpostorCheatException($"Client attempted to send data for {nameof(InnerGameData)} as non-host");
-            }
+            //if (!sender.IsHost)
+            //{
+            //    throw new ImpostorCheatException($"Client attempted to send data for {nameof(InnerGameData)} as non-host");
+            //}
 
             if (initialState)
             {

@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using System.Threading.Tasks;
 using Impostor.Api;
 using Impostor.Api.Innersloth;
@@ -56,20 +56,20 @@ namespace Impostor.Server.Net.Inner.Objects.Components
         {
             if (call == RpcCalls.SnapTo)
             {
-                if (!sender.IsOwner(this))
-                {
-                    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SnapTo)} to an unowned {nameof(InnerPlayerControl)}");
-                }
+                //if (!sender.IsOwner(this))
+                //{
+                //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SnapTo)} to an unowned {nameof(InnerPlayerControl)}");
+                //}
 
-                if (target != null)
-                {
-                    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SnapTo)} to a specific player instead of broadcast");
-                }
+                //if (target != null)
+                //{
+                //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SnapTo)} to a specific player instead of broadcast");
+                //}
 
-                if (!sender.Character.PlayerInfo.IsImpostor)
-                {
-                    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SnapTo)} as crewmate");
-                }
+                //if (!sender.Character.PlayerInfo.IsImpostor)
+                //{
+                //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.SnapTo)} as crewmate");
+                //}
 
                 SnapTo(ReadVector2(reader), reader.ReadUInt16());
             }
@@ -112,15 +112,15 @@ namespace Impostor.Server.Net.Inner.Objects.Components
             }
             else
             {
-                if (!sender.IsOwner(this))
-                {
-                    throw new ImpostorCheatException($"Client attempted to send unowned {nameof(InnerCustomNetworkTransform)} data");
-                }
+                //if (!sender.IsOwner(this))
+                //{
+                //    throw new ImpostorCheatException($"Client attempted to send unowned {nameof(InnerCustomNetworkTransform)} data");
+                //}
 
-                if (target != null)
-                {
-                    throw new ImpostorCheatException($"Client attempted to send {nameof(InnerCustomNetworkTransform)} data to a specific player, must be broadcast");
-                }
+                //if (target != null)
+                //{
+                //    throw new ImpostorCheatException($"Client attempted to send {nameof(InnerCustomNetworkTransform)} data to a specific player, must be broadcast");
+                //}
 
                 if (!SidGreaterThan(sequenceId, _lastSequenceId))
                 {

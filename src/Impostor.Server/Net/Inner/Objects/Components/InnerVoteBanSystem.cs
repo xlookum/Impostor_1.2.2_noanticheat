@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Impostor.Api;
@@ -30,15 +30,15 @@ namespace Impostor.Server.Net.Inner.Objects.Components
             }
 
             var clientId = reader.ReadInt32();
-            if (clientId != sender.Client.Id)
-            {
-                throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.AddVote)} as other client");
-            }
+            //if (clientId != sender.Client.Id)
+            //{
+            //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.AddVote)} as other client");
+            //}
 
-            if (target != null)
-            {
-                throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CastVote)} to wrong destinition, must be broadcast");
-            }
+            //if (target != null)
+            //{
+            //    throw new ImpostorCheatException($"Client sent {nameof(RpcCalls.CastVote)} to wrong destinition, must be broadcast");
+            //}
 
             var targetClientId = reader.ReadInt32();
 
@@ -54,10 +54,10 @@ namespace Impostor.Server.Net.Inner.Objects.Components
 
         public override void Deserialize(IClientPlayer sender, IClientPlayer? target, IMessageReader reader, bool initialState)
         {
-            if (!sender.IsHost)
-            {
-                throw new ImpostorCheatException($"Client attempted to send data for {nameof(InnerShipStatus)} as non-host");
-            }
+            //if (!sender.IsHost)
+            //{
+            //    throw new ImpostorCheatException($"Client attempted to send data for {nameof(InnerShipStatus)} as non-host");
+            //}
 
             var votes = _votes;
             var unknown = reader.ReadByte();
